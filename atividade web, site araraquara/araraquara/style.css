@@ -4,77 +4,104 @@ body {
     padding: 0;
     background: #fdfdfd;
     color: #333;
-  }
-  
-  header {
+}
+
+header {
     background-color: #ff80199a;
     color: white;
     padding: 20px;
     text-align: center;
-  }
-  
-  nav ul {
+}
+
+nav ul {
     list-style: none;
     padding: 0;
-  }
-  
-  nav ul li {
+}
+
+nav ul li {
     display: inline-block;
     margin: 0 10px;
-  }
-  
-  nav a {
+}
+
+nav a {
     color: #fff;
     text-decoration: none;
-  }
-  
-  main {
+}
+
+main {
     padding: 20px;
     max-width: 1000px;
     margin: 0 auto;
-  }
-  
-  footer {
+}
+
+footer {
     background-color: #ff80199a;
     color: white;
     text-align: center;
     padding: 10px;
     width: 100%;
     bottom: 0;
-  }
-  
-  img {
+}
+
+img {
     max-width: 100%;
     height: auto;
     margin-top: 20px;
-  }
-  
-  .imagem-direita {
-    float: right;
-    margin: 20px 0 20px 20px; /* topo, direita, baixo, esquerda */
-    max-width: 40%; /* ou ajuste conforme necessário */
-    height: auto;
-  }
-  
-  /* Clearfix para evitar que o float da imagem quebre o layout */
-  .clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
- 
-  .imagem-direita {
-    float: right;
-    margin: 8px 0 20px 20px;
-    max-width: 40%;
-    height: auto;
-  }
-  
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
+}
+
+/* Flexbox para alinhar texto e imagem lado a lado */
+.conteudo-principal {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que os itens se movam para a linha seguinte se não houver espaço */
+    justify-content: space-between; /* Espaçamento entre os itens */
+    align-items: flex-start; /* Alinha os itens no topo */
+    margin-bottom: 20px;
+}
+
+.texto {
+    flex: 1; /* O texto ocupa o máximo de espaço possível */
+    margin-right: 20px; /* Espaçamento à direita */
+}
+
+.imagem {
+    flex: 0 0 40%; /* A imagem ocupa 40% do espaço */
+}
+
+.informacoes-praticas, .localizacao-horarios {
+    background-color: #f1f1f1;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.informacoes-praticas h2, .localizacao-horarios h2 {
+    color: #ff8019;
+    font-size: 1.6em;
+}
+
+.informacoes-praticas p, .localizacao-horarios p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
     header {
-      font-size: 90%;
+        font-size: 90%;
     }
-  }
-  
+
+    .conteudo-principal {
+        flex-direction: column;  /* Empilha o texto e a imagem em telas pequenas */
+        align-items: center;     /* Centraliza o conteúdo */
+    }
+
+    .imagem {
+        max-width: 100%; /* Ajusta a imagem para a largura total */
+        margin-top: 20px;
+    }
+
+    .informacoes-praticas, .localizacao-horarios {
+        padding: 15px;
+    }
+}
